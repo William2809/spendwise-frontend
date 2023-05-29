@@ -56,7 +56,14 @@ function Register() {
 	return (
 		<div className="flex flex-col justify-center items-center pt-[100px]">
 			<div>
-				<h1 className="text-primary text-6xl font-bold">Register</h1>
+				<div className="flex items-center gap-4">
+					<img
+						className="w-[80px]"
+						src="/logo.svg"
+						alt=""
+					/>
+					<h1 className="text-primary text-6xl font-bold">Register</h1>
+				</div>
 				<div className="mt-4">
 					<p>
 						Already have an account?{" "}
