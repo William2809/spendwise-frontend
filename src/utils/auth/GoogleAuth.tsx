@@ -60,20 +60,19 @@ const GoogleAuth = () => {
 			email: decoded.email,
 			picture: decoded.picture,
 		};
-		setLoading(false);
 		await authService.googleSignIn(userData);
+		setLoading(false);
 		navigate("/home");
 	};
 
-	if (loading) {
-		return <div>Loading...</div>;
-	}
-
 	return (
-		<div
-			id="buttonDiv"
-			className=""
-		></div>
+		<div>
+			{loading && <div>Loading...</div>}
+			<div
+				id="buttonDiv"
+				className=""
+			></div>
+		</div>
 	);
 };
 
