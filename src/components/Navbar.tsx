@@ -43,7 +43,7 @@ function Navbar() {
 		{ title: "Profile", destination: "/profile" },
 	];
 	return (
-		<div className="fixed bottom-0 z-20 bg-white w-full flex justify-between shadow-[0px_-2px_10px_rgba(0,0,0,0.25)] px-6">
+		<div className="fixed bottom-0 z-20 bg-white max-w-lg w-full flex justify-between shadow-[0px_-2px_10px_rgba(0,0,0,0.25)] px-6">
 			{navitems.map((navitem) => (
 				<NavLink
 					key={navitem.title}
@@ -52,7 +52,7 @@ function Navbar() {
 						location.pathname === navitem.destination
 							? "text-primary"
 							: "text-disabled"
-					} flex items-center justify-center hover:text-primary py-1`}
+					} flex items-center cursor-pointer justify-center hover:text-primary py-1 outline-none`}
 				>
 					<div className="flex flex-col justify-center items-center">
 						{iconMap[navitem.title]}
