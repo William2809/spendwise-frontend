@@ -3,6 +3,7 @@ import PrivateRoute from "./routes/PrivateRoute";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Home from "./pages/Home";
+import Test from "./pages/Test";
 
 function App() {
 	return (
@@ -13,6 +14,10 @@ function App() {
 					<Route
 						path="/"
 						element={<Login />}
+					></Route>
+					<Route
+						path="/test"
+						element={<Test />}
 					></Route>
 					<Route
 						path="/register"
