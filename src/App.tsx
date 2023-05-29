@@ -4,10 +4,14 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Home from "./pages/Home";
 import Test from "./pages/Test";
+import Deals from "./pages/Deals";
+import Insights from "./pages/Insights";
+import Profile from "./pages/Profile";
+import AppLayout from "./components/AppLayout";
 
 function App() {
 	return (
-		<div>
+		<div className="max-w-lg">
 			{/* navbar in here later */}
 			<Router>
 				<Routes>
@@ -26,13 +30,44 @@ function App() {
 
 					<Route
 						path="/home"
-						element={<PrivateRoute />}
-					>
-						<Route
-							path="/home"
-							element={<Home />}
-						/>
-					</Route>
+						element={
+							<PrivateRoute>
+								<AppLayout>
+									<Home />
+								</AppLayout>
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/deals"
+						element={
+							<PrivateRoute>
+								<AppLayout>
+									<Deals />
+								</AppLayout>
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/insights"
+						element={
+							<PrivateRoute>
+								<AppLayout>
+									<Insights />
+								</AppLayout>
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/profile"
+						element={
+							<PrivateRoute>
+								<AppLayout>
+									<Profile />
+								</AppLayout>
+							</PrivateRoute>
+						}
+					/>
 				</Routes>
 			</Router>
 		</div>

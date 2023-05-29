@@ -26,6 +26,7 @@ function Home() {
 					{user.name}
 				</h2>
 			</div>
+			<div className="py-10">Home Page</div>
 			<div className="mt-10 space-y-2">
 				<div>Temporary log out button</div>
 				<button
