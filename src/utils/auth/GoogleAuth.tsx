@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import authService from "./AuthService";
 import { useNavigate } from "react-router-dom";
+import LoadingScreen from "../../components/LoadingScreen";
 
 interface DecodedData {
 	name: string;
@@ -67,7 +68,7 @@ const GoogleAuth = () => {
 
 	return (
 		<div>
-			{loading && <div>Loading...</div>}
+			{loading && <LoadingScreen />}
 			<div
 				id="buttonDiv"
 				className=""
