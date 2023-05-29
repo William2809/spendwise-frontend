@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import authService from "./AuthService";
 import { useNavigate } from "react-router-dom";
@@ -51,17 +51,23 @@ const GoogleAuth = () => {
 		};
 	}, []);
 
+	const [loading, setLoading] = useState(false);
 	const handleCredentialResponse = async (response: { credential: string }) => {
+		setLoading(true);
 		const decoded: DecodedData = jwt_decode(response.credential);
 		const userData = {
 			name: decoded.name,
 			email: decoded.email,
 			picture: decoded.picture,
 		};
-
+		setLoading(false);
 		await authService.googleSignIn(userData);
 		navigate("/home");
 	};
+
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<div
