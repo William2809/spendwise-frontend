@@ -1,9 +1,10 @@
 {
     "rewrites": [
+        { "source": "/(.*)", "destination": "/" },
         {
             "source": "/api",
             "destination": "https://spendwise-backend.vercel.app/"
-        }
+        },
     ],
     "headers": [
         {
