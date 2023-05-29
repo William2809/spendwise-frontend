@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
-import googleSignIn from "./AuthService";
 import authService from "./AuthService";
 import { useNavigate } from "react-router-dom";
-import useAuthStatus from "../../hooks/useAuthStatus";
 
 interface DecodedData {
 	name: string;

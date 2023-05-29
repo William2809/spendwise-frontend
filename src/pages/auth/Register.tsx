@@ -46,7 +46,7 @@ function Register() {
 		const userData = formData;
 
 		try {
-			const data = await authService.register(userData);
+			await authService.register(userData);
 		} catch (error: any) {
 			setError(error.message);
 		}
