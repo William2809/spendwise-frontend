@@ -10,7 +10,6 @@ const useAuthStatus = () => {
     useEffect(() => {
         if(user){
             setLoggedIn(true);
-            console.log("auth");
         }
         else{
             setLoggedIn(false);
