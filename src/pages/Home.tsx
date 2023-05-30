@@ -26,7 +26,14 @@ function Home() {
 					{user.name}
 				</h2>
 			</div>
-			<div className="py-10">Home Page</div>
+			<div className="py-10">
+				<div className="rounded-lg p-4 shadow-md bg-black bg-opacity-[0.02]">
+					<div className="font-bold text-black text-[20px]">
+						Average spending per month
+					</div>
+					<div className="text-primary font-semibold text-[48px]">${1000}</div>
+				</div>
+			</div>
 			<div className="mt-10 space-y-2">
 				<div>Temporary log out button</div>
 				<button
