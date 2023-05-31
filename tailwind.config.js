@@ -11,6 +11,7 @@ export default {
 			"primary-muted": "#497A4B",
 			"input-bg": "#EAEAEA",
 			"primary-hover": "#3D8D53",
+			"chart-bg": "#7ACC7D",
 		},
 	},
 	plugins: [],
