@@ -1,7 +1,5 @@
 import axios from "axios";
-import TransactionModal, {
-	transactionForm,
-} from "../../components/TransactionModal";
+import { transactionForm } from "../../components/TransactionModal";
 const API_URL = import.meta.env.VITE_BACKEND_URL + "/api/transactions/";
 
 // const userItem = localStorage.getItem("user");

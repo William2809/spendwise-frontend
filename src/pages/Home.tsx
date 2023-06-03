@@ -11,8 +11,7 @@ import TransactionModal, {
 import transactionService from "../utils/transaction/transactionService";
 
 function Home() {
-	// const user = JSON.parse(localStorage.getItem("user")!);
-	const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")!));
+	const user = JSON.parse(localStorage.getItem("user")!);
 	const { isVisible, hideOverlay, showOverlay } = useOverlay();
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [transactions, setTransactions] = useState<transactionForm[]>([]);
