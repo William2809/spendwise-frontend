@@ -20,7 +20,6 @@ import {
 } from "react-icons/md";
 import { transactionForm } from "../components/TransactionModal";
 import transactionService from "../utils/transaction/transactionService";
-import useLocalStorage from "../hooks/useLocalstorage";
 
 const categories = [
 	{
