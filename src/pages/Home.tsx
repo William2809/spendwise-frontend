@@ -44,7 +44,7 @@ function Home() {
 
 	return (
 		<div
-			className="px-5 pt-4 pb-[100px]"
+			className="px-5 pt-4 pb-[100px] max-w-lg"
 			onClick={hideOverlay}
 		>
 			<div className="flex justify-between items-center w-full">
@@ -71,20 +71,20 @@ function Home() {
 				hideOverlay={hideOverlay}
 			/>
 
-			<div className="transition-all ">
+			<div className="sm:hidden">
 				<div
 					className={` text-white fixed bottom-[80px] right-5 flex items-center text-[20px] font-semibold p-3 px-5 rounded-[20px] z-10 cursor-pointer    outline-none transition-all overflow-hidden duration-500   ${
 						!isVisible
-							? "w-[100px] bg-primary hover:bg-primary-hover"
+							? "w-[110px] bg-primary hover:bg-primary-hover"
 							: "w-[280px] bg-[#C5DDC6]"
 					}`}
 					onClick={handleAddClick}
 				>
 					{!isVisible && (
-						<>
-							<MdOutlineAdd size="32" />
+						<div className="flex justify-center items-center gap-1">
+							<MdOutlineAdd size="28" />
 							<div>Add</div>
-						</>
+						</div>
 					)}
 					{isVisible && (
 						<div
