@@ -73,7 +73,7 @@ function Home() {
 
 			<div className="sm:hidden">
 				<div
-					className={` text-white fixed bottom-[80px] right-5 flex items-center text-[20px] font-semibold p-3 px-5 rounded-[20px] z-10 cursor-pointer    outline-none transition-all overflow-hidden duration-500   ${
+					className={` text-white fixed bottom-[80px] right-5 flex items-center text-[20px] font-semibold p-3 px-5 rounded-[20px] z-10 cursor-pointer  transition-all ease-in-out duration-500  outline-none overflow-hidden ${
 						!isVisible
 							? "w-[110px] bg-primary hover:bg-primary-hover"
 							: "w-[280px] bg-[#C5DDC6]"
