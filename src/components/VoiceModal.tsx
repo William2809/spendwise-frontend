@@ -47,7 +47,10 @@ const VoiceModal: React.FC<VoiceModalProps> = ({
 			) : (
 				<ReactModal
 					isOpen={voiceIsOpen}
-					onRequestClose={() => setVoiceIsOpen(false)}
+					onRequestClose={() => {
+						setVoiceIsOpen(false);
+						setClassified(undefined);
+					}}
 					style={{
 						overlay: {
 							backgroundColor: "rgba(0, 0, 0, 0.75)",
