@@ -9,6 +9,7 @@ import Insights from "./pages/Insights";
 import Profile from "./pages/Profile";
 import AppLayout from "./components/AppLayout";
 import History from "./pages/History";
+import TransactionDetail from "./pages/transaction/TransactionDetail";
 
 function App() {
 	return (
@@ -45,6 +46,16 @@ function App() {
 							<PrivateRoute>
 								<AppLayout>
 									<History />
+								</AppLayout>
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/transaction/:transactionId"
+						element={
+							<PrivateRoute>
+								<AppLayout>
+									<TransactionDetail />
 								</AppLayout>
 							</PrivateRoute>
 						}

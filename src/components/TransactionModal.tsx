@@ -22,6 +22,8 @@ import {
 } from "react-icons/md";
 
 export interface transactionForm {
+	_id: string;
+	createdAt: string;
 	name: string;
 	item: string;
 	category: string;
@@ -64,6 +66,8 @@ const TransactionModal: React.FC<TransactionModalProps> = ({
 		item: "",
 		category: categories[0].name,
 		amount: null,
+		createdAt: "",
+		_id: "",
 	});
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

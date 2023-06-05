@@ -9,6 +9,7 @@ import TransactionModal, {
 	transactionForm,
 } from "../components/TransactionModal";
 import transactionService from "../utils/transaction/transactionService";
+import Transactions from "../components/Transactions";
 
 function Home() {
 	const user = JSON.parse(localStorage.getItem("user")!);
@@ -40,7 +41,7 @@ function Home() {
 			setTransactions(result);
 		};
 		fetchData();
-	}, [user, modalIsOpen]);
+	}, [modalIsOpen]);
 
 	return (
 		<div
@@ -73,10 +74,10 @@ function Home() {
 
 			<div className="sm:hidden">
 				<div
-					className={` text-white fixed bottom-[80px] right-5 flex items-center text-[20px] font-semibold p-3 px-5 rounded-[20px] z-10 cursor-pointer  transition-all ease-in-out duration-500  outline-none overflow-hidden ${
+					className={` text-white fixed bottom-[80px] right-5 flex items-center text-[20px] font-semibold p-3 px-5 rounded-[20px] z-10 cursor-pointer ease-in-out duration-500  outline-none overflow-hidden shadow-md ${
 						!isVisible
 							? "w-[110px] bg-primary hover:bg-primary-hover"
-							: "w-[280px] bg-[#C5DDC6]"
+							: "w-[280px] bg-secondary"
 					}`}
 					onClick={handleAddClick}
 				>
@@ -105,7 +106,7 @@ function Home() {
 				</div>
 			</div>
 
-			<div className="my-10 bg-chart-bg rounded-xl">
+			<div className="mt-10 bg-chart-bg rounded-xl">
 				<div className="px-5 pt-4">
 					<div className="font-bold text-primary-muted text-[20px]">
 						Average spending per week
@@ -117,6 +118,17 @@ function Home() {
 				</div>
 			</div>
 
+			<div className="pt-5">
+				<div className="font-semibold text-[24px]">Recent Transactions</div>
+
+				<div className="pt-3">
+					<Transactions
+						transactions={transactions}
+						limit={-5}
+					/>
+				</div>
+			</div>
+
 			<div className="mt-10 space-y-2">
 				<div>Temporary log out button</div>
 				<button
@@ -125,20 +137,6 @@ function Home() {
 				>
 					Log out
 				</button>
-			</div>
-
-			<div className="pt-5">
-				<div className="font-semibold text-[24px]">Recent Transactions</div>
-				{transactions && (
-					<div>
-						{transactions
-							.slice(-5)
-							.reverse()
-							.map((transaction, index) => (
-								<div key={index}>{transaction.name}</div>
-							))}
-					</div>
-				)}
 			</div>
 		</div>
 	);
