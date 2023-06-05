@@ -46,8 +46,30 @@ const getTransaction = async () => {
 	}
 };
 
+//get classify text
+const classifyTransaction = async (text: string) => {
+	try {
+		const userItem = localStorage.getItem("user");
+		const user = userItem ? JSON.parse(userItem) : [];
+		const token = user.token;
+		const config = {
+			method: "post",
+			url: API_URL + "classify",
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+			data: { text: text },
+		};
+		const response = await axios(config);
+		return response.data;
+	} catch (err: any) {
+		throw new Error(err.response?.data?.message || "Cannot be added.");
+	}
+};
+
 const transactionService = {
 	addTransaction,
 	getTransaction,
+	classifyTransaction,
 };
 export default transactionService;

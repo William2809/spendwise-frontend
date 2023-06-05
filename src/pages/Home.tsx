@@ -10,11 +10,14 @@ import TransactionModal, {
 } from "../components/TransactionModal";
 import transactionService from "../utils/transaction/transactionService";
 import Transactions from "../components/Transactions";
+import useSpeechRecognition from "../hooks/useSpeechRecognition";
+import VoiceModal from "../components/VoiceModal";
 
 function Home() {
 	const user = JSON.parse(localStorage.getItem("user")!);
 	const { isVisible, hideOverlay, showOverlay } = useOverlay();
 	const [modalIsOpen, setModalIsOpen] = useState(false);
+	const [voiceIsOpen, setVoiceIsOpen] = useState(false);
 	const [transactions, setTransactions] = useState<transactionForm[]>([]);
 	const [weeklySpending, setWeeklySpending] = useState<number[]>([
 		0, 0, 0, 0, 0, 0, 0,
@@ -59,8 +62,6 @@ function Home() {
 		const fetchData = async () => {
 			const result = await transactionService.getTransaction();
 			setTransactions(result);
-			console.log(result);
-
 			//set data for chart
 			const weeklySpending = [0, 0, 0, 0, 0, 0, 0];
 			let total = 0;
@@ -79,6 +80,13 @@ function Home() {
 		fetchData();
 	}, [modalIsOpen]);
 
+	const {
+		text,
+		isListening,
+		startListening,
+		stopListening,
+		hasRecognitionSupport,
+	} = useSpeechRecognition();
 	return (
 		<div
 			className="px-5 pt-4 pb-[100px] max-w-lg"
@@ -102,10 +110,20 @@ function Home() {
 					/>
 				</Link>
 			</div>
+
 			<TransactionModal
 				modalIsOpen={modalIsOpen}
 				setModalIsOpen={setModalIsOpen}
 				hideOverlay={hideOverlay}
+			/>
+
+			<VoiceModal
+				voiceIsOpen={voiceIsOpen}
+				setVoiceIsOpen={setVoiceIsOpen}
+				text={text}
+				isListening={isListening}
+				startListening={startListening}
+				stopListening={stopListening}
 			/>
 
 			<div className="sm:hidden">
@@ -123,6 +141,7 @@ function Home() {
 							<div>Add</div>
 						</div>
 					)}
+
 					{isVisible && (
 						<div
 							className="text-white flex h-[56px] overflow-hidden justify-between w-full"
@@ -134,12 +153,31 @@ function Home() {
 							>
 								Add manually
 							</button>
-							<button className="p-2 bg-primary hover:bg-primary-hover rounded-xl">
+							<button
+								onClick={() => {
+									setVoiceIsOpen(true);
+									startListening();
+								}}
+								className="p-2 bg-primary hover:bg-primary-hover rounded-xl"
+							>
 								Voice
 							</button>
 						</div>
 					)}
 				</div>
+			</div>
+
+			<div>
+				{hasRecognitionSupport ? (
+					<div>
+						{isListening ? (
+							<div>Your browser is currently listening</div>
+						) : null}
+						{/* {text} */}
+					</div>
+				) : (
+					<div>Your Browser did not support voice recognition.</div>
+				)}
 			</div>
 
 			{/* CHART */}

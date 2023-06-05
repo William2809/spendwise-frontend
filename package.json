@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@syncfusion/ej2-react-charts": "^21.2.6",
+    "@types/dom-speech-recognition": "^0.0.1",
     "axios": "^1.4.0",
     "chart.js": "^4.3.0",
     "dotenv": "^16.0.3",
