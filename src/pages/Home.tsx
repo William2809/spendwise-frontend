@@ -16,6 +16,11 @@ function Home() {
 	const { isVisible, hideOverlay, showOverlay } = useOverlay();
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [transactions, setTransactions] = useState<transactionForm[]>([]);
+	const [weeklySpending, setWeeklySpending] = useState<number[]>([
+		0, 0, 0, 0, 0, 0, 0,
+	]);
+	const [total, setTotal] = useState(0);
+
 	const navigate = useNavigate();
 	const logout = () => {
 		authService.logout();
@@ -39,7 +44,34 @@ function Home() {
 		const fetchData = async () => {
 			const result = await transactionService.getTransaction();
 			setTransactions(result);
+			console.log(result);
+
+			const isThisWeek = (date: Date) => {
+				const todayObj = new Date();
+				const weekStart = new Date(
+					todayObj.setDate(todayObj.getDate() - todayObj.getDay())
+				);
+				const weekEnd = new Date(
+					todayObj.setDate(todayObj.getDate() - todayObj.getDay() + 6)
+				);
+				return date >= weekStart && date <= weekEnd;
+			};
+
+			//set data for chart
+			const weeklySpending = [0, 0, 0, 0, 0, 0, 0];
+			let total = 0;
+			result.forEach((transaction: transactionForm) => {
+				const transactionDate = new Date(transaction.createdAt);
+				if (isThisWeek(transactionDate)) {
+					const day = (transactionDate.getDay() - 1 + 7) % 7;
+					weeklySpending[day] += transaction.amount || 0;
+					total += transaction.amount || 0;
+				}
+			});
+			setTotal(total);
+			setWeeklySpending(weeklySpending);
 		};
+
 		fetchData();
 	}, [modalIsOpen]);
 
@@ -89,7 +121,7 @@ function Home() {
 					)}
 					{isVisible && (
 						<div
-							className="  text-white flex h-[56px] overflow-hidden justify-between w-full"
+							className="text-white flex h-[56px] overflow-hidden justify-between w-full"
 							onClick={handleOverlayClick}
 						>
 							<button
@@ -106,15 +138,18 @@ function Home() {
 				</div>
 			</div>
 
+			{/* CHART */}
 			<div className="mt-10 bg-chart-bg rounded-xl">
 				<div className="px-5 pt-4">
 					<div className="font-bold text-primary-muted text-[20px]">
 						Average spending per week
 					</div>
-					<div className="text-white font-semibold text-[48px]">${1000}</div>
+					<div className="text-white font-semibold text-[48px]">
+						&#165;{total}
+					</div>
 				</div>
-				<div className=" ">
-					<ChartComponent />
+				<div>
+					<ChartComponent weeklySpending={weeklySpending} />
 				</div>
 			</div>
 

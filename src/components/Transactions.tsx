@@ -19,7 +19,7 @@ import {
 	MdStyle,
 	MdTrendingUp,
 } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
 	transactions: transactionForm[];
@@ -29,7 +29,7 @@ interface Props {
 const iconSize = "32";
 const iconClassName = "text-secondary flex items-center justify-center";
 
-const categories = [
+export const categories = [
 	{
 		name: "Groceries",
 		icon: (
@@ -186,7 +186,7 @@ const Transactions: FC<Props> = ({ transactions, limit }): JSX.Element => {
 	return (
 		<div>
 			{transactions.length > 0 && (
-				<div className="flex flex-col gap-2">
+				<div className="flex flex-col gap-2 cursor-pointer">
 					{transactions
 						.slice(limit)
 						.reverse()

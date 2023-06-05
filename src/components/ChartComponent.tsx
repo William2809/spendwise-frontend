@@ -1,16 +1,19 @@
 import { useEffect, useRef } from "react";
 import { Chart, ChartConfiguration } from "chart.js/auto";
 
-export const ChartComponent = () => {
+export const ChartComponent = ({
+	weeklySpending,
+}: {
+	weeklySpending: number[];
+}) => {
 	const chartRef = useRef<HTMLCanvasElement | null>(null);
 	const myChartRef = useRef<Chart<"bar", number[], string> | null>(null);
 
 	useEffect(() => {
 		if (chartRef.current) {
-			const spendingData = [20, 30, 40, 50, 60, 70, 80];
 			const maxDataValue =
-				Math.max(...spendingData) + Math.max(...spendingData) * 0.2;
-			const trackData = new Array(spendingData.length).fill(maxDataValue);
+				Math.max(...weeklySpending) + Math.max(...weeklySpending) * 0.2;
+			const trackData = new Array(weeklySpending.length).fill(maxDataValue);
 
 			const config: ChartConfiguration<"bar", number[], string> = {
 				type: "bar",
@@ -19,7 +22,7 @@ export const ChartComponent = () => {
 					datasets: [
 						{
 							label: "Spending",
-							data: spendingData,
+							data: weeklySpending,
 							backgroundColor: "#ffffff",
 							barPercentage: 0.7,
 							categoryPercentage: 0.7,
@@ -100,7 +103,7 @@ export const ChartComponent = () => {
 				myChartRef.current?.destroy();
 			};
 		}
-	}, []);
+	}, [weeklySpending]);
 
 	return <canvas ref={chartRef}></canvas>;
 };
