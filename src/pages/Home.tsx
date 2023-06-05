@@ -40,22 +40,26 @@ function Home() {
 		e.stopPropagation();
 	};
 
+	function isThisWeek(date: Date) {
+		const now = new Date();
+		const startOfWeek = new Date(
+			now.getFullYear(),
+			now.getMonth(),
+			now.getDate() - ((now.getDay() + 6) % 7)
+		); // This line sets startOfWeek to the most recent Monday
+		const endOfWeek = new Date(
+			startOfWeek.getFullYear(),
+			startOfWeek.getMonth(),
+			startOfWeek.getDate() + 6
+		); // This line sets endOfWeek to the upcoming Sunday
+		return date >= startOfWeek && date <= endOfWeek;
+	}
+
 	useEffect(() => {
 		const fetchData = async () => {
 			const result = await transactionService.getTransaction();
 			setTransactions(result);
 			console.log(result);
-
-			const isThisWeek = (date: Date) => {
-				const todayObj = new Date();
-				const weekStart = new Date(
-					todayObj.setDate(todayObj.getDate() - todayObj.getDay())
-				);
-				const weekEnd = new Date(
-					todayObj.setDate(todayObj.getDate() - todayObj.getDay() + 6)
-				);
-				return date >= weekStart && date <= weekEnd;
-			};
 
 			//set data for chart
 			const weeklySpending = [0, 0, 0, 0, 0, 0, 0];
@@ -142,7 +146,7 @@ function Home() {
 			<div className="mt-10 bg-chart-bg rounded-xl">
 				<div className="px-5 pt-4">
 					<div className="font-bold text-primary-muted text-[20px]">
-						Average spending per week
+						This Week's Spending
 					</div>
 					<div className="text-white font-semibold text-[48px]">
 						&#165;{total}
