@@ -8,10 +8,12 @@ import Deals from "./pages/Deals";
 import Insights from "./pages/Insights";
 import Profile from "./pages/Profile";
 import AppLayout from "./components/AppLayout";
+import History from "./pages/History";
+import TransactionDetail from "./pages/transaction/TransactionDetail";
 
 function App() {
 	return (
-		<div className="max-w-lg">
+		<div className="max-w-lg ">
 			{/* navbar in here later */}
 			<Router>
 				<Routes>
@@ -34,6 +36,26 @@ function App() {
 							<PrivateRoute>
 								<AppLayout>
 									<Home />
+								</AppLayout>
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/history"
+						element={
+							<PrivateRoute>
+								<AppLayout>
+									<History />
+								</AppLayout>
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/transaction/:transactionId"
+						element={
+							<PrivateRoute>
+								<AppLayout>
+									<TransactionDetail />
 								</AppLayout>
 							</PrivateRoute>
 						}

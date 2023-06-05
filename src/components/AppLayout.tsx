@@ -2,7 +2,7 @@ import Navbar from "./Navbar";
 
 function AppLayout({ children }: any) {
 	return (
-		<div>
+		<div className="">
 			{children}
 			<Navbar />
 		</div>
