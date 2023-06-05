@@ -34,10 +34,9 @@ const VoiceModal: React.FC<VoiceModalProps> = ({
 			setIsLoading(true);
 			const result = await transactionService.classifyTransaction(text);
 			setClassified(result);
-			console.log(classified);
 			setIsLoading(false);
 		} catch (error: any) {
-			console.log("error");
+			console.log(error);
 		}
 	};
 
