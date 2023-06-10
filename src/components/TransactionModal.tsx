@@ -24,10 +24,10 @@ import {
 export interface transactionForm {
 	_id: string;
 	createdAt: string;
-	name: string;
-	item: string;
-	category: string;
-	amount: number | null;
+	name: string | undefined;
+	item: string | undefined;
+	category: string | undefined;
+	amount: number | null | undefined;
 }
 
 type TransactionModalProps = {

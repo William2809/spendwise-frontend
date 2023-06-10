@@ -24,7 +24,7 @@ function History() {
 		return navigate(-1);
 	};
 	return (
-		<div className="px-5 pt-4">
+		<div className="px-5 pt-4 pb-20">
 			<div className="flex items-center gap-3 text-primary-muted">
 				<MdArrowBack
 					size="28"

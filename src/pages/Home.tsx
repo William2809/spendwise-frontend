@@ -1,4 +1,3 @@
-import authService from "../utils/auth/AuthService";
 import { Link, useNavigate } from "react-router-dom";
 import nullpng from "../assets/null.png";
 import { ChartComponent } from "../components/ChartComponent";
@@ -25,10 +24,6 @@ function Home() {
 	const [total, setTotal] = useState(0);
 
 	const navigate = useNavigate();
-	const logout = () => {
-		authService.logout();
-		navigate("/");
-	};
 
 	if (!user) {
 		navigate("/");
@@ -46,15 +41,19 @@ function Home() {
 	function isThisWeek(date: Date) {
 		const now = new Date();
 		const startOfWeek = new Date(
-			now.getFullYear(),
-			now.getMonth(),
-			now.getDate() - ((now.getDay() + 6) % 7)
-		); // This line sets startOfWeek to the most recent Monday
+			Date.UTC(
+				now.getUTCFullYear(),
+				now.getUTCMonth(),
+				now.getUTCDate() - ((now.getUTCDay() + 6) % 7)
+			)
+		);
 		const endOfWeek = new Date(
-			startOfWeek.getFullYear(),
-			startOfWeek.getMonth(),
-			startOfWeek.getDate() + 6
-		); // This line sets endOfWeek to the upcoming Sunday
+			Date.UTC(
+				startOfWeek.getUTCFullYear(),
+				startOfWeek.getUTCMonth(),
+				startOfWeek.getUTCDate() + 6
+			)
+		);
 		return date >= startOfWeek && date <= endOfWeek;
 	}
 
@@ -78,7 +77,7 @@ function Home() {
 		};
 
 		fetchData();
-	}, [modalIsOpen]);
+	}, [modalIsOpen, voiceIsOpen]);
 
 	const {
 		text,
@@ -204,16 +203,6 @@ function Home() {
 						limit={-5}
 					/>
 				</div>
-			</div>
-
-			<div className="mt-10 space-y-2">
-				<div>Temporary log out button</div>
-				<button
-					className="rounded-lg bg-primary font-semibold hover:bg-primary-hover text-white py-2 px-4"
-					onClick={logout}
-				>
-					Log out
-				</button>
 			</div>
 		</div>
 	);
