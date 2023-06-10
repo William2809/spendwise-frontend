@@ -24,7 +24,7 @@ function Profile() {
 	};
 
 	return (
-		<div className="px-5 pt-4  max-w-lg profile-height flex flex-col overflow-auto">
+		<div className="px-5 pt-4 max-w-lg profile-height flex flex-col overflow-auto">
 			<div className="flex justify-between items-center w-full">
 				<div className="flex items-center gap-3">
 					<img
@@ -81,7 +81,7 @@ function Profile() {
 						</Link>
 					</div>
 					<div
-						className="w-full text-white bg-primary rounded-lg  items-center py-3 px-3 cursor-pointer hover:bg-primary-muted"
+						className="w-full mb-[80px] text-white bg-primary rounded-lg  items-center py-3 px-3 cursor-pointer hover:bg-primary-muted"
 						onClick={logout}
 					>
 						<div className="flex gap-5 items-center">
