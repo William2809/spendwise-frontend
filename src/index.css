@@ -10,6 +10,10 @@ body {
 	padding: 0;
 }
 
+.profile-height {
+	height: calc(100vh - 80px);
+}
+
 a {
 	-webkit-tap-highlight-color: transparent;
 }
