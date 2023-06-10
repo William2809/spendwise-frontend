@@ -24,7 +24,7 @@ function Profile() {
 	};
 
 	return (
-		<div className="px-5 pt-4 pb-[80px] max-w-lg h-screen flex flex-col">
+		<div className="px-5 pt-4 pb-[80px] max-w-lg h-screen flex flex-col overflow-auto">
 			<div className="flex justify-between items-center w-full">
 				<div className="flex items-center gap-3">
 					<img
@@ -41,7 +41,7 @@ function Profile() {
 			<div className="mt-10 flex items-center gap-5">
 				<img
 					src={user.picture ? `${user.picture}` : nullpng}
-					className="rounded-full h-32"
+					className="rounded-full h-20"
 					alt="User Profile"
 				/>
 				<div className="flex flex-col gap-1">
