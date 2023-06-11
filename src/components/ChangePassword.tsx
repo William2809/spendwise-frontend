@@ -87,7 +87,6 @@ const ChangePassword: FC<Props> = ({
 		reset();
 	}, []);
 
-	console.log(success);
 	return (
 		<div className="mt-10 flex flex-col flex-grow">
 			{isLoading ? (
