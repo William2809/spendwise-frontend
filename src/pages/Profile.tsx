@@ -19,7 +19,7 @@ function Profile() {
 		navigate("/");
 	};
 
-	const handleChangePasswordClick = () => {
+	const handleChangePasswordClick = async () => {
 		setOpenChangePassword(!openChangePassword);
 	};
 
