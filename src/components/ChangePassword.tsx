@@ -135,10 +135,7 @@ const ChangePassword: FC<Props> = ({
 							</div>
 							{error && <p className="text-[#F61C1C] py-2">{error}</p>}
 
-							<button
-								type="submit"
-								className="w-full text-white bg-primary rounded-lg flex items-center py-3 px-3 cursor-pointer hover:bg-primary-muted justify-center text-[20px] font-semibold"
-							>
+							<button className="w-full text-white bg-primary rounded-lg flex items-center py-3 px-3 cursor-pointer hover:bg-primary-muted justify-center text-[20px] font-semibold">
 								<div>Set Password</div>
 							</button>
 						</form>
@@ -201,10 +198,7 @@ const ChangePassword: FC<Props> = ({
 								</div>
 								{error && <p className="text-[#F61C1C]">{error}</p>}
 
-								<button
-									type="submit"
-									className="w-full text-white bg-primary rounded-lg flex items-center py-3 px-3 cursor-pointer hover:bg-primary-muted justify-center text-[20px] font-semibold"
-								>
+								<button className="w-full text-white bg-primary rounded-lg flex items-center py-3 px-3 cursor-pointer hover:bg-primary-muted justify-center text-[20px] font-semibold">
 									<div>Change Password</div>
 								</button>
 							</div>
