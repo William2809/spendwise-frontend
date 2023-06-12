@@ -193,6 +193,7 @@ const Transactions: FC<Props> = ({
 	const [isLoading, setIsLoading] = useState(false);
 	const editTransaction = (e: React.MouseEvent, id: string) => {
 		e.stopPropagation();
+		id = id;
 	};
 
 	const deleteTransaction = async (e: React.MouseEvent, id: string) => {
