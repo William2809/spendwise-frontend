@@ -22,7 +22,7 @@ function Home() {
 		0, 0, 0, 0, 0, 0, 0,
 	]);
 	const [total, setTotal] = useState(0);
-
+	const [refreshKey, setRefreshKey] = useState(0);
 	const navigate = useNavigate();
 
 	if (!user) {
@@ -201,6 +201,9 @@ function Home() {
 					<Transactions
 						transactions={transactions}
 						limit={-5}
+						refreshKey={refreshKey}
+						setRefreshKey={setRefreshKey}
+						edit={false}
 					/>
 				</div>
 			</div>
