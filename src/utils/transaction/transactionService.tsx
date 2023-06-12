@@ -67,9 +67,51 @@ const classifyTransaction = async (text: string) => {
 	}
 };
 
+const deleteTransaction = async (id: string) => {
+	try {
+		const userItem = localStorage.getItem("user");
+		const user = userItem ? JSON.parse(userItem) : [];
+		const token = user.token;
+		const config = {
+			method: "delete",
+			url: API_URL + "delete",
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+			data: { id: id },
+		};
+		const response = await axios(config);
+		return response.data;
+	} catch (err: any) {
+		throw new Error(err.response?.data?.message || "Cannot be deleted.");
+	}
+};
+
+const editTransaction = async (transactionForm: transactionForm) => {
+	try {
+		const userItem = localStorage.getItem("user");
+		const user = userItem ? JSON.parse(userItem) : [];
+		const token = user.token;
+		const config = {
+			method: "post",
+			url: API_URL + "edit",
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+			data: { transactionForm },
+		};
+		const response = await axios(config);
+		return response.data;
+	} catch (err: any) {
+		throw new Error(err.response?.data?.message || "Cannot be deleted.");
+	}
+};
+
 const transactionService = {
 	addTransaction,
 	getTransaction,
 	classifyTransaction,
+	deleteTransaction,
+	editTransaction,
 };
 export default transactionService;

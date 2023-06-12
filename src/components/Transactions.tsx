@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { transactionForm } from "./TransactionModal";
 import {
 	MdArrowForwardIos,
@@ -20,10 +20,15 @@ import {
 	MdTrendingUp,
 } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import LoadingScreen from "./LoadingScreen";
+import transactionService from "../utils/transaction/transactionService";
 
 interface Props {
 	transactions: transactionForm[];
 	limit: number | undefined;
+	edit: boolean;
+	refreshKey: number;
+	setRefreshKey: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const iconSize = "32";
@@ -176,13 +181,32 @@ export const categories = [
 	},
 ];
 
-const Transactions: FC<Props> = ({ transactions, limit }): JSX.Element => {
+const Transactions: FC<Props> = ({
+	transactions,
+	limit,
+	edit,
+	refreshKey,
+	setRefreshKey,
+}): JSX.Element => {
 	// console.log(transactions);
 	const navigate = useNavigate();
+	const [isLoading, setIsLoading] = useState(false);
+	const editTransaction = (e: React.MouseEvent, id: string) => {
+		e.stopPropagation();
+	};
+
+	const deleteTransaction = async (e: React.MouseEvent, id: string) => {
+		e.stopPropagation();
+		setIsLoading(true);
+		await transactionService.deleteTransaction(id);
+		setIsLoading(false);
+		setRefreshKey(refreshKey + 1);
+	};
 
 	const handleTransactionClick = (transaction: transactionForm) => {
 		navigate(`/transaction/${transaction._id}`, { state: { transaction } });
 	};
+
 	return (
 		<div>
 			{transactions.length > 0 && (
@@ -196,6 +220,7 @@ const Transactions: FC<Props> = ({ transactions, limit }): JSX.Element => {
 								key={index}
 								className="flex bg-secondary px-3 py-2 rounded-xl  justify-between"
 							>
+								{isLoading && <LoadingScreen />}
 								<div className="flex items-center gap-4">
 									<div className="bg-primary-muted flex rounded-lg">
 										{categories.map((category, categoryIndex) => {
@@ -223,8 +248,26 @@ const Transactions: FC<Props> = ({ transactions, limit }): JSX.Element => {
 										</div>
 									</div>
 								</div>
-								<div className="flex gap-2 items-center h-min font-bold">
-									&#165;{transaction.amount} <MdArrowForwardIos size="20" />
+								<div className="flex flex-col gap-2 justify-between items-end h-min font-bold">
+									<div className="flex items-center gap-2">
+										&#165;{transaction.amount} <MdArrowForwardIos size="20" />
+									</div>
+									{edit && (
+										<div className="max-w-min flex flex-col gap-2">
+											<div
+												className="p-2 rounded-lg bg-primary text-white font-normal w-full text-center hover:bg-primary-hover"
+												onClick={(e) => deleteTransaction(e, transaction._id)}
+											>
+												Delete
+											</div>
+											<div
+												className="p-2 rounded-lg bg-primary text-white font-normal w-full text-center hover:bg-primary-hover"
+												onClick={(e) => editTransaction(e, transaction._id)}
+											>
+												Edit
+											</div>
+										</div>
+									)}
 								</div>
 							</div>
 						))}
