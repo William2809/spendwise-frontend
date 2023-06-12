@@ -93,17 +93,17 @@ const editTransaction = async (transactionForm: transactionForm) => {
 		const user = userItem ? JSON.parse(userItem) : [];
 		const token = user.token;
 		const config = {
-			method: "post",
+			method: "put",
 			url: API_URL + "edit",
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
-			data: { transactionForm },
+			data: transactionForm,
 		};
 		const response = await axios(config);
 		return response.data;
 	} catch (err: any) {
-		throw new Error(err.response?.data?.message || "Cannot be deleted.");
+		throw new Error(err.response?.data?.message || "Cannot be edited.");
 	}
 };
 

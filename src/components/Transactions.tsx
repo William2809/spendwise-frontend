@@ -22,6 +22,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import LoadingScreen from "./LoadingScreen";
 import transactionService from "../utils/transaction/transactionService";
+import { useOverlay } from "../hooks/useOverlay";
+import EditTransactionModal from "./EditTransactionModal";
 
 interface Props {
 	transactions: transactionForm[];
@@ -191,9 +193,25 @@ const Transactions: FC<Props> = ({
 	// console.log(transactions);
 	const navigate = useNavigate();
 	const [isLoading, setIsLoading] = useState(false);
-	const editTransaction = (e: React.MouseEvent, id: string) => {
+	const [transaction, setTransaction] = useState<transactionForm>({
+		name: "",
+		item: "",
+		category: categories[0].name,
+		amount: null,
+		createdAt: "",
+		_id: "",
+	});
+	const [modalIsOpen, setModalIsOpen] = useState(false);
+
+	const { hideOverlay } = useOverlay();
+
+	const editTransaction = (
+		e: React.MouseEvent,
+		transaction: transactionForm
+	) => {
 		e.stopPropagation();
-		id = id;
+		setTransaction(transaction);
+		setModalIsOpen(true);
 	};
 
 	const deleteTransaction = async (e: React.MouseEvent, id: string) => {
@@ -210,6 +228,14 @@ const Transactions: FC<Props> = ({
 
 	return (
 		<div>
+			<EditTransactionModal
+				modalIsOpen={modalIsOpen}
+				setModalIsOpen={setModalIsOpen}
+				hideOverlay={hideOverlay}
+				oldTransaction={transaction}
+				refreshKey={refreshKey}
+				setRefreshKey={setRefreshKey}
+			/>
 			{transactions.length > 0 && (
 				<div className="flex flex-col gap-2 cursor-pointer">
 					{transactions
@@ -263,7 +289,7 @@ const Transactions: FC<Props> = ({
 											</div>
 											<div
 												className="p-2 rounded-lg bg-primary text-white font-normal w-full text-center hover:bg-primary-hover"
-												onClick={(e) => editTransaction(e, transaction._id)}
+												onClick={(e) => editTransaction(e, transaction)}
 											>
 												Edit
 											</div>

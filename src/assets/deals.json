@@ -2,9 +2,62 @@
     {
         "name": "Free github premium access for university students",
         "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-        "description": "You can have a full year student of free premium acces to github"
+        "description": "You can have a full year student of free premium acces to github",
+        "link": "https://education.github.com/pack"
     },
     {
-        
+        "name": "Free Student Membership",
+        "image": "https://www.univcoop.or.jp/coop/images_new/img_coop_topics10.png",
+        "description": "Get a free one-year student membership and access exclusive benefits",
+        "link": ""
+    },
+    
+    {
+        "name": "Student Meal Deal: 50% Off",
+        "image": "https://www.mcdonalds.co.jp/assets/images/mcd-logo.svg",
+        "description": "Enjoy a student meal deal with a 50% discount on your favorite combo",
+        "link": ""
+    },
+    {
+        "name": "Student Travel Discount",
+        "image": "https://www.jal.co.jp/jp/ja/commonY20/img_sites/logo_jal.svg",
+        "description": "Save on your travel expenses with exclusive student discounts",
+        "link": ""
+    },
+{
+        "name": "Student Software Bundle: 30% Off",
+        "image": "https://images.ipros.jp/public/company/image/209/2091471/IPROS49842020951309768918.jpeg?w=140&h=140",
+        "description": "Get a discounted software bundle tailored for students with a 30% discount",
+        "link": ""
+    },
+    {
+        "name": "Student Gym Membership: Special Rate",
+        "image": "https://www.central.co.jp/assets/common/img/logo.png",
+        "description": "Stay fit with a student gym membership at a special discounted rate",
+        "link": ""
+    },
+    {
+        "name": "Student Book Rental: 50% Off",
+        "image": "https://www.junkudo.co.jp/img/junkudo_logo.png",
+        "description": "Rent textbooks at half the price with this exclusive student discount",
+        "link": ""
+    },
+    {
+        "name": "Student Fashion Sale: Extra 20% Off",
+        "image": "https://tripmall.online/wp-content/uploads/2019/10/TM_SP_zozotown.jpg",
+        "description": "Shop the latest fashion trends with an extra 20% off for students",
+        "link": ""
+    },
+    {
+        "name": "Buy One, Get One Free for Students",
+        "image": "https://as1.ftcdn.net/v2/jpg/01/20/67/00/1000_F_120670050_LnXO7HuLp21du8ImhjwgUasiNceKqc41.jpg",
+        "description": "Buy one item and get a second one for free with your student status",
+        "link": ""
+    },
+    {
+        "name": "Student Art Supplies Discount",
+        "image": "https://artscape.jp/common/image/head_logo_sp.gif",
+        "description": "Get discounted art supplies for your creative projects as a student",
+        "link": ""
     }
 ]
