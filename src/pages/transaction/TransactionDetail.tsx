@@ -22,7 +22,7 @@ const TransactionDetail = () => {
 	const location = useLocation();
 	const transaction: transactionForm = location.state.transaction;
 
-	let date = new Date("2023-06-04T11:22:01.900Z");
+	let date = new Date(transaction.createdAt);
 
 	let formattedDate = `${date.getFullYear()}/${(
 		"0" +
