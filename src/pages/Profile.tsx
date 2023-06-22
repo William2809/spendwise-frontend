@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../utils/auth/AuthService";
 import { useState } from "react";
 import ChangePassword from "../components/ChangePassword";
+import { AiOutlineMoneyCollect } from "react-icons/ai";
 
 function Profile() {
 	const user = JSON.parse(localStorage.getItem("user")!);
@@ -76,6 +77,17 @@ function Profile() {
 							<div className="flex gap-5 items-center">
 								<MdHistory size="28"></MdHistory>
 								<div>Transaction history</div>
+							</div>
+							<MdArrowForwardIos></MdArrowForwardIos>
+						</Link>
+
+						<Link
+							to="/budget"
+							className="w-full bg-secondary rounded-lg flex justify-between items-center py-3 px-3 cursor-pointer hover:bg-primary hover:text-white"
+						>
+							<div className="flex gap-5 items-center">
+								<AiOutlineMoneyCollect size="28"></AiOutlineMoneyCollect>
+								<div>Set weekly budget</div>
 							</div>
 							<MdArrowForwardIos></MdArrowForwardIos>
 						</Link>

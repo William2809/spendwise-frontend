@@ -91,6 +91,46 @@ const setPassword = async (
 	}
 };
 
+const setbudget = async (weeklyBudget: number | undefined) => {
+	try {
+		const userItem = localStorage.getItem("user");
+		const user = userItem ? JSON.parse(userItem) : [];
+		const token = user.token;
+		const config = {
+			method: "post",
+			url: API_URL + "setbudget",
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+			data: {
+				weeklyBudget: weeklyBudget,
+			},
+		};
+		const response = await axios(config);
+		return response.data;
+	} catch (err: any) {
+		throw new Error(err.response?.data?.message || "Cannot be added.");
+	}
+};
+const getbudget = async () => {
+	try {
+		const userItem = localStorage.getItem("user");
+		const user = userItem ? JSON.parse(userItem) : [];
+		const token = user.token;
+		const config = {
+			method: "get",
+			url: API_URL + "getbudget",
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		};
+		const response = await axios(config);
+		return response.data;
+	} catch (err: any) {
+		throw new Error(err.response?.data?.message || "Cannot be added.");
+	}
+};
+
 const authService = {
 	register,
 	login,
@@ -98,5 +138,7 @@ const authService = {
 	googleSignIn,
 	checkPassword,
 	setPassword,
+	setbudget,
+	getbudget,
 };
 export default authService;

@@ -10,6 +10,7 @@ import Profile from "./pages/Profile";
 import AppLayout from "./components/AppLayout";
 import History from "./pages/History";
 import TransactionDetail from "./pages/transaction/TransactionDetail";
+import Budget from "./pages/Budget";
 
 function App() {
 	return (
@@ -46,6 +47,16 @@ function App() {
 							<PrivateRoute>
 								<AppLayout>
 									<History />
+								</AppLayout>
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/budget"
+						element={
+							<PrivateRoute>
+								<AppLayout>
+									<Budget />
 								</AppLayout>
 							</PrivateRoute>
 						}
