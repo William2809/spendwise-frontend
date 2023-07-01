@@ -3,6 +3,8 @@ import LoadingScreen from "../components/LoadingScreen";
 import insightsService from "../utils/insightsService";
 import nullpng from "../assets/null.png";
 import { ChartComponent } from "../components/ChartComponent";
+import { RxUpdate } from "react-icons/rx";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 function Insights() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -25,20 +27,38 @@ function Insights() {
 		setIsLoading(false);
 	};
 
-	const getPrediction = async () => {
-		const result = await insightsService.predict();
-		setWeeklyPrediction((prevWeeklyPrediction) => {
-			const newWeeklyPrediction = [...prevWeeklyPrediction];
-			newWeeklyPrediction[result.day - 1] = result.prediction;
-			insightsService.savePrediction(newWeeklyPrediction);
-			return newWeeklyPrediction;
-		});
-	};
+	//make predictions
+	// const getPrediction = async () => {
+	// 	setIsLoading(true);
+	// 	const result = await insightsService.predict();
+	// 	setWeeklyPrediction((prevWeeklyPrediction) => {
+	// 		const newWeeklyPrediction = [...prevWeeklyPrediction];
+	// 		newWeeklyPrediction[result.day] = result.prediction;
+	// 		insightsService.savePrediction(newWeeklyPrediction);
+	// 		return newWeeklyPrediction;
+	// 	});
+	// 	setIsLoading(false);
+	// };
 
+	//get weekly predictions data from database
 	const setPrediction = async () => {
 		const result = await insightsService.getWeeklyPrediction();
-		// setWeeklyPrediction(result);
 		setWeeklyPrediction(result.weeklyPrediction);
+	};
+
+	const updateDailyTransaction = async () => {
+		setIsLoading(true);
+		const updatedPrediction = await insightsService.updateDailyTransaction();
+		setWeeklyPrediction(updatedPrediction.prediction);
+		await insightsService.savePrediction(updatedPrediction.prediction);
+		setIsLoading(false);
+		console.log(updatedPrediction.prediction);
+	};
+
+	const deleteDailyTransaction = async () => {
+		setIsLoading(true);
+		await insightsService.deleteAllDailyTransaction();
+		setIsLoading(false);
 	};
 
 	useEffect(() => {
@@ -79,18 +99,28 @@ function Insights() {
 								return (
 									<div key={index}>
 										<div className="text-[20px] font-semibold text-white flex justify-between w-[200px]">
-											<p>{dayName[index]}</p> <p>&#165;{item}</p>
+											<p>{dayName[index]}</p> <p>&#165;{item.toFixed(2)}</p>
 										</div>
 										<div className="text-secondary"></div>
 									</div>
 								);
 							}
 						})}
-					<div
-						onClick={getPrediction}
-						className="p-4 mt-4 bg-primary-muted text-white text-[24px] font-semibold hover:bg-primary-hover rounded-xl  cursor-pointer text-center"
-					>
-						Predict Next Week
+					<div className="flex items-center mt-4 gap-2">
+						<div
+							onClick={updateDailyTransaction}
+							className="p-3  bg-primary-muted text-white text-[20px]  font-semibold hover:bg-primary-hover rounded-xl  cursor-pointer text-center w-full flex gap-2 items-center justify-center"
+						>
+							<RxUpdate size="20"></RxUpdate>
+							<div>Predict Next Week</div>
+						</div>
+
+						<div
+							className="p-3  rounded-xl bg-primary-muted text-white hover:bg-primary-hover cursor-pointer"
+							onClick={deleteDailyTransaction}
+						>
+							<FaRegTrashAlt size="28"></FaRegTrashAlt>
+						</div>
 					</div>
 				</div>
 

@@ -55,20 +55,23 @@ export const categories = [
 	{ name: "Miscellaneous", icon: <MdHelp /> },
 ];
 
+const initialTrsactionForm = {
+	name: "",
+	item: "",
+	category: categories[0].name,
+	amount: null,
+	createdAt: "",
+	_id: "",
+};
+
 const TransactionModal: React.FC<TransactionModalProps> = ({
 	setModalIsOpen,
 	modalIsOpen,
 	hideOverlay,
 }) => {
 	const [isLoading, setIsLoading] = useState(false);
-	const [transaction, setTransaction] = useState<transactionForm>({
-		name: "",
-		item: "",
-		category: categories[0].name,
-		amount: null,
-		createdAt: "",
-		_id: "",
-	});
+	const [transaction, setTransaction] =
+		useState<transactionForm>(initialTrsactionForm);
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTransaction((prevState) => ({
@@ -88,8 +91,8 @@ const TransactionModal: React.FC<TransactionModalProps> = ({
 		e.preventDefault();
 		try {
 			setIsLoading(true);
-			const status = await transactionService.addTransaction(transaction);
-			console.log(status);
+			await transactionService.addTransaction(transaction);
+			setTransaction(initialTrsactionForm);
 			setIsLoading(false);
 			setModalIsOpen(false);
 		} catch (error: any) {
