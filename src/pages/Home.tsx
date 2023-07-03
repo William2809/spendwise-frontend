@@ -51,7 +51,10 @@ function Home() {
 			Date.UTC(
 				startOfWeek.getUTCFullYear(),
 				startOfWeek.getUTCMonth(),
-				startOfWeek.getUTCDate() + 6
+				startOfWeek.getUTCDate() + 6,
+				23, // hours
+				59, // minutes
+				59 // seconds
 			)
 		);
 		return date >= startOfWeek && date <= endOfWeek;
@@ -67,7 +70,8 @@ function Home() {
 			result.forEach((transaction: transactionForm) => {
 				const transactionDate = new Date(transaction.createdAt);
 				if (isThisWeek(transactionDate)) {
-					const day = (transactionDate.getDay() - 1 + 7) % 7;
+					const day =
+						transactionDate.getDay() - 1 < 0 ? 6 : transactionDate.getDay() - 1;
 					weeklySpending[day] += transaction.amount || 0;
 					total += transaction.amount || 0;
 				}
