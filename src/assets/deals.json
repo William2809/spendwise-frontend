@@ -46,54 +46,5 @@
         "image": "https://static.wixstatic.com/media/3cb1d0_08e03819050a427fb21cbf00e168415f~mv2.png/v1/fit/w_373,h_453,q_90/3cb1d0_08e03819050a427fb21cbf00e168415f~mv2.png",
         "description": "Enjoy Gong Cha drinks at a special student price",
         "link": "https://www.gongcha.co.jp/student/"
-    },
-    
-    {
-        "name": "Student Meal Deal: 50% Off",
-        "image": "https://www.mcdonalds.co.jp/assets/images/mcd-logo.svg",
-        "description": "Enjoy a student meal deal with a 50% discount on your favorite combo",
-        "link": ""
-    },
-    {
-        "name": "Student Travel Discount",
-        "image": "https://www.jal.co.jp/jp/ja/commonY20/img_sites/logo_jal.svg",
-        "description": "Save on your travel expenses with exclusive student discounts",
-        "link": ""
-    },
-{
-        "name": "Student Software Bundle: 30% Off",
-        "image": "https://images.ipros.jp/public/company/image/209/2091471/IPROS49842020951309768918.jpeg?w=140&h=140",
-        "description": "Get a discounted software bundle tailored for students with a 30% discount",
-        "link": ""
-    },
-    {
-        "name": "Student Gym Membership: Special Rate",
-        "image": "https://www.central.co.jp/assets/common/img/logo.png",
-        "description": "Stay fit with a student gym membership at a special discounted rate",
-        "link": ""
-    },
-    {
-        "name": "Student Book Rental: 50% Off",
-        "image": "https://www.junkudo.co.jp/img/junkudo_logo.png",
-        "description": "Rent textbooks at half the price with this exclusive student discount",
-        "link": ""
-    },
-    {
-        "name": "Student Fashion Sale: Extra 20% Off",
-        "image": "https://tripmall.online/wp-content/uploads/2019/10/TM_SP_zozotown.jpg",
-        "description": "Shop the latest fashion trends with an extra 20% off for students",
-        "link": ""
-    },
-    {
-        "name": "Buy One, Get One Free for Students",
-        "image": "https://as1.ftcdn.net/v2/jpg/01/20/67/00/1000_F_120670050_LnXO7HuLp21du8ImhjwgUasiNceKqc41.jpg",
-        "description": "Buy one item and get a second one for free with your student status",
-        "link": ""
-    },
-    {
-        "name": "Student Art Supplies Discount",
-        "image": "https://artscape.jp/common/image/head_logo_sp.gif",
-        "description": "Get discounted art supplies for your creative projects as a student",
-        "link": ""
     }
 ]
