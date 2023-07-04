@@ -8,14 +8,20 @@
     {
         "name": "Special Price for YouTube Premium",
         "image": "https://www.sheerid.com/shoppers/wp-content/uploads/sites/4/2020/05/youtube-deal-page-467x316.jpg",
-        "description": "Get a discount price for student to have access to Youtube Premium and Youtube Music",
+        "description": "Get a discount price for Youtube Premium and enjoy ad-free videos, offline play, background play, and more",
         "link": "https://www.youtube.com/premium/student"
     },
     {
         "name": "Free JetBrains IDEs",
         "image": "https://blog.jetbrains.com/wp-content/uploads/2019/08/jp-blog.png",
-        "description": "Get free access to all JetBrains IDEs for personal use at school or at home (IntelliJ,PyCharm,AppCode...)",
+        "description": "Get free access to all JetBrains IDEs for personal use at school or at home (IntelliJ, PyCharm, AppCode...)",
         "link": "https://www.jetbrains.com/community/education/"
+    },
+    {
+        "name": "6 month free trial and discount price for Amazon Prime",
+        "image": "https://s3.ap-northeast-1.amazonaws.com/img.app-liv.jp/vod_logo/primestudent.png",
+        "description": "Get a 6 month free trial then discount price for Amazon Prime and enjoy free shipping, exclusive deals, award-winning movies and TV shows, and more",
+        "link": "https://www.amazon.co.jp/%E5%AD%A6%E7%94%9F-%E5%A4%A7%E5%AD%A6%E7%94%9F-%E6%95%99%E7%A7%91%E6%9B%B8-%E6%9C%AC-student/b?ie=UTF8&node=2410972051"
     },
     {
         "name": "Free Student Membership",
