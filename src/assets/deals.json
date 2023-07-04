@@ -1,8 +1,8 @@
 [
     {
-        "name": "Free github premium access for university students",
+        "name": "Free GitHub Premium ",
         "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-        "description": "You can have a full year student of free premium acces to github",
+        "description": "Get Github Premium Access and enjoy unlimited private repositories, code review, project management, and more ",
         "link": "https://education.github.com/pack"
     },
     {
@@ -24,10 +24,16 @@
         "link": "https://www.amazon.co.jp/%E5%AD%A6%E7%94%9F-%E5%A4%A7%E5%AD%A6%E7%94%9F-%E6%95%99%E7%A7%91%E6%9B%B8-%E6%9C%AC-student/b?ie=UTF8&node=2410972051"
     },
     {
-        "name": "Free Student Membership",
-        "image": "https://www.univcoop.or.jp/coop/images_new/img_coop_topics10.png",
+        "name": "Discount Coupon for Dell Products",
+        "image": "https://pbs.twimg.com/profile_images/1345923830095646721/uhiKaJ-0_400x400.png",
+        "description": "Get a Discount coupon for dell or alienware laptops,peripherals and more",
+        "link": "https://www.dell.com/ja-jp/lp/student-discount-purchase-program"
+    },
+    {
+        "name": "1 month free trial and discount price for Spotify Premium",
+        "image": "https://static.independent.co.uk/2022/05/19/10/spotify%20cncel.jpg",
         "description": "Get a free one-year student membership and access exclusive benefits",
-        "link": "https://google.com/"
+        "link": "https://www.spotify.com/jp/student/"
     },
     
     {
