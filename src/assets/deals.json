@@ -6,6 +6,18 @@
         "link": "https://education.github.com/pack"
     },
     {
+        "name": "Special Price for YouTube Premium",
+        "image": "https://www.sheerid.com/shoppers/wp-content/uploads/sites/4/2020/05/youtube-deal-page-467x316.jpg",
+        "description": "Get a discount price for student to have access to Youtube Premium and Youtube Music",
+        "link": "https://www.youtube.com/premium/student"
+    },
+    {
+        "name": "Free JetBrains IDEs",
+        "image": "https://blog.jetbrains.com/wp-content/uploads/2019/08/jp-blog.png",
+        "description": "Get free access to all JetBrains IDEs for personal use at school or at home (IntelliJ,PyCharm,AppCode...)",
+        "link": "https://www.jetbrains.com/community/education/"
+    },
+    {
         "name": "Free Student Membership",
         "image": "https://www.univcoop.or.jp/coop/images_new/img_coop_topics10.png",
         "description": "Get a free one-year student membership and access exclusive benefits",
