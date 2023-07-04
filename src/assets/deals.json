@@ -35,6 +35,18 @@
         "description": "Get 1 month free trial then discount price for Spotify Premium and enjoy ad-free music, offline play, on-demand playback, and more",
         "link": "https://www.spotify.com/jp/student/"
     },
+    {
+        "name": " 69 % OFF for Adobe Creative Cloud Suite",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Adobe_Creative_Cloud_rainbow_icon.svg/1200px-Adobe_Creative_Cloud_rainbow_icon.svg.png",
+        "description": "Get 69% OFF for Adobe Creative Cloud Suite and enjoy Photoshop, Illustrator, InDesign, Premiere Pro, and more",
+        "link": "https://www.adobe.com/jp/creativecloud/buy/students.html"
+    },
+    {
+        "name": "Gong Cha student price",
+        "image": "https://static.wixstatic.com/media/3cb1d0_08e03819050a427fb21cbf00e168415f~mv2.png/v1/fit/w_373,h_453,q_90/3cb1d0_08e03819050a427fb21cbf00e168415f~mv2.png",
+        "description": "Enjoy Gong Cha drinks at a special student price",
+        "link": "https://www.gongcha.co.jp/student/"
+    },
     
     {
         "name": "Student Meal Deal: 50% Off",
