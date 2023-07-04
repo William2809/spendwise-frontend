@@ -46,5 +46,11 @@
         "image": "https://static.wixstatic.com/media/3cb1d0_08e03819050a427fb21cbf00e168415f~mv2.png/v1/fit/w_373,h_453,q_90/3cb1d0_08e03819050a427fb21cbf00e168415f~mv2.png",
         "description": "Enjoy Gong Cha drinks at a special student price",
         "link": "https://www.gongcha.co.jp/student/"
+    },
+    {
+        "name": "UnderConstruction",
+        "image": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/construction-zone-excavator-work-in-progress-gifts-yellow-background-life-over-here.jpg",
+        "description": "Wait until we add more deals",
+        "link": "https://spendwise-frontend-v1.vercel.app/deals"
     }
 ]
